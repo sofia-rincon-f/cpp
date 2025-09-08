@@ -287,5 +287,4 @@ int main(){
 
 return 0;
 
->>>>>>> 64c44174f032b5cd7961a7b1e50ec52c6405e6f8
 }
