@@ -178,16 +178,6 @@ int main(){
 
 // Video 18 Ejercicio 6
 
-return 0;
-
-=======
-#include <iostream>
-
-
-using namespace std;
-
-int main(){
-
 // Video 11 CONDICIONAL SIMPLE Y DOBLE if
 
     int numero, dato = 5;
