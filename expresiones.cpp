@@ -1,0 +1,79 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+
+    // Ejercicio 1
+
+    float a, b, resultado=0;
+
+    cout<<"Digite el valor de a: "; cin >>a;
+    cout<<"Digite el valor de b: "; cin >>b;
+
+    resultado = (a / b) + 1; 
+
+    cout.precision(2); // Para que los decimales se reduzcan
+
+    cout<< "El resultado es: "<<resultado<<endl; 
+
+    // Ejercicio 2
+
+    float d, e, f, g, h, i, resultado2=0;
+
+    cout<<"d: "; cin >> d;
+    cout<<"e: "; cin >> e;
+    cout<<"f: "; cin >> f;
+    cout<<"g: "; cin >> g;
+    cout<<"h: "; cin >> h;
+    cout<<"i: "; cin >> i;
+
+    resultado2 = (d+(e/f))/(g+(h/i));
+
+    cout << "El resultado es: " << resultado2<< endl;
+
+    // Ejercicio 3
+
+    int x, y, aux;
+
+    cout << "Digite el valor de x: "; cin >> x;
+    cout << "Digite el valor de y: "; cin >> y;
+
+    aux = x; 
+    x = y; 
+    y = aux;
+
+    cout << "El nuevo valor de x es: " << x<<endl;
+    cout << "El nuevo valor de y es: " << y << endl;
+
+    // Ejercicio 4 
+
+    float practica, teorica, participacion, nota_final=0;
+
+
+    cout << "Ingrese la nota de practica: "; cin >> practica; 
+    cout << "Ingrese la nota de teorica: "; cin >> teorica;
+    cout << "Ingrese la nota de participacion: "; cin >> participacion;
+    
+    practica *= 0.30;
+    teorica *= 0.60;
+    participacion *= 0.10; 
+
+    nota_final = practica + teorica + participacion;
+
+    cout << "La nota final es :" << nota_final << endl;
+
+    // Ejercicio 5
+
+    float x, y, resultado=0;
+
+    cout << "Ingrese un valor de x: "; cin >> x;
+    cout << "Ingrese un valor de y: "; cin >> y;
+
+    resultado = (sqrt(x))/(pow(y,2)-1);
+
+    cout << "El resultado es: " << resultado <<endl;
+    
+    return 0;
+}
