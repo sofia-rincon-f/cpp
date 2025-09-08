@@ -4,6 +4,8 @@ using namespace std;
 
 int main(){
 
+    // Video 5
+
     int edad; 
     char sexo[10];
     float altura;

@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 
-// CONDICIONAL SIMPLE Y DOBLE if
+// Video 11 CONDICIONAL SIMPLE Y DOBLE if
 
     int numero, dato = 5;
 
@@ -20,7 +20,7 @@ int main(){
     }
 
 
-//CONDICIONALES MULTIPLES Switch
+// Video 12 CONDICIONALES MULTIPLES Switch
 
     int numero;
 
@@ -42,7 +42,7 @@ int main(){
     }
     
 
-// Ejercicio 1
+// Video 13 Ejercicio 1
 
     int numero1, numero2;
 
@@ -58,8 +58,7 @@ int main(){
         }
 
 
-// Ejercicio 2
-
+// Video 14 Ejercicio 2
 
     int n;
 
@@ -75,11 +74,33 @@ int main(){
         cout<<"Es un numero impar";
     }
 
-    
-    
+
+// Video 15 Ejercicio 3
+
+    char letra;
+
+    cout << "Digite un caracter; ";
+    cin >> letra;
 
 
+    switch (letra)
+    {
+    case 'a': 
+    case 'e': 
+    case 'i': 
+    case 'o': 
+    case 'u': cout << "Es una vocal minuscula"; // Sin break el comprobara las cinco vocales
+        break;
+    default: cout << "No es una vocal minuscula";
+        break;
+    }
 
+
+// Video 16 Ejercicio 4
+
+// Video 17 Ejercicio 5
+
+// Video 18 Ejercicio 6
 
 return 0;
 

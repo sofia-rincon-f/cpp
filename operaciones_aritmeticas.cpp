@@ -4,7 +4,9 @@ using namespace std;
 
 int main(){
 
-    // 1 Operaciones aritmeticas
+
+    // Video 4
+    // Bloque 1 Operaciones aritmeticas
     
     int n1, n2, suma = 0, resta = 0, multiplicacion=0, division=0;
 

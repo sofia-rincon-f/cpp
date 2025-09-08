@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 
-    // Ejercicio 1
+    // Video 6 Ejercicio 1
 
     float a, b, resultado=0;
 
@@ -18,7 +18,7 @@ int main(){
 
     cout<< "El resultado es: "<<resultado<<endl; 
 
-    // Ejercicio 2
+    // Video 7 Ejercicio 2
 
     float d, e, f, g, h, i, resultado2=0;
 
@@ -33,7 +33,7 @@ int main(){
 
     cout << "El resultado es: " << resultado2<< endl;
 
-    // Ejercicio 3
+    // Video 8 Ejercicio 3
 
     int x, y, aux;
 
@@ -47,7 +47,7 @@ int main(){
     cout << "El nuevo valor de x es: " << x<<endl;
     cout << "El nuevo valor de y es: " << y << endl;
 
-    // Ejercicio 4 
+    // Video 9 Ejercicio 4 
 
     float practica, teorica, participacion, nota_final=0;
 
@@ -64,7 +64,7 @@ int main(){
 
     cout << "La nota final es :" << nota_final << endl;
 
-    // Ejercicio 5
+    // Video 10 Ejercicio 5
 
     float x, y, resultado=0;
 
