@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 
 
@@ -63,11 +62,12 @@ int main(){
 
     int n;
 
-    cout<<"Digite un numero"; cin>>n;
+    cout<<"Digite un numero";
+    cin>>n;
 
 
     if (n==0){
-        cout<<"El numero es cero"
+        cout<<"El numero es cero";
     } else if (n%2==0){
         cout<<"Es un numero par";
 

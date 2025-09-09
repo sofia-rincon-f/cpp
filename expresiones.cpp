@@ -77,13 +77,6 @@ int main(){
     cout << "El resultado es: " << resultado <<endl;
     
     return 0;
-=======
-#include <iostream>
-#include<math.h>
-
-using namespace std;
-
-int main(){
 
     // Video 6 Ejercicio 1
 

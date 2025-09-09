@@ -1,7 +1,8 @@
 #include <iostream>
 #include <conio.h> // Es para que el ejecutable no se cierra automaticamente
 #include <stdlib.h> // Similar al anterior
-
+#include <math.h> // Operaciones raiz y potencia
+#include <time.h> // Numero aleatorio
 
 using namespace std;
 
@@ -127,20 +128,77 @@ int main(){
     cout<<"Digite un numero: "; cin>>nm;
 
 
-    for (i = 1; i <= nm; i++)
+    for (int i = 1; i <= nm; i++)
     {
         factorial = factorial * i;
     }
-    
 
-// Video 27 
+    cout<<"El factorial del numero es: "<<factorial<<endl;
 
-// Video 28
+    system("pause");
 
-// Video 29
-    
+// Video 27 Bucle que eleve y sume 2ʌ1+2ʌ2+2ʌ3...2ʌn
 
-    
+    int elevacion, suma=0, n=0;
+
+
+    cout << "Digite el numero de elementos a sumar: "; cin >> n;
+
+    for (int i = 1; i <= n; i++)
+    {
+        elevacion = pow(2,i)
+        suma += elevacion
+    }
+
+    cout << "La suma total es: "<<suma<<endl;
+
+    system("pause");
+
+// Video 28 Serie fibonacci 1 1 2 3 5 8 13...n
+
+    int n, x=0, y=1, z=1;
+
+
+    cout<<"Digite el numero de elementos: "; cin>>n; 
+
+    for (int i = 1; i <= n; i++)
+    {
+        z= x+y; //1 2 3
+        cout<<z<<" "; // 1 2 3
+        x=y; // 1 1 2
+        y=z; // 1 2 3
+    }
+
+    cout<<"\n";
+    system("pause");
+        
+
+// Video 29 Generar numero aleatorio, pedir al usuario numero aleatorio, decir si es menor o mayor, mostrar numero de intentos que le llevo adivinar el numero
+
+    int numero, dato, contador=0;
+
+    srand(time(NULL)); // Genera un numero aleatorio;
+    dato = 1 + rand()%(100);
+
+    do
+    {
+        cout<<"Digite un numero: "; cin>>numero;
+
+        if(numero>dato){
+            cout<<"Digite un numero menor \n";
+        }
+        if (numero < dato){
+            cout<<"\nDigite un numero mayor \n";
+        }
+        contador++
+
+    } while (numero != dato);
+
+
+    cout<<"\nFelicidades adivinaste el numero\n";
+    cout<<"Numero de intentos: "<<contador<<endl;
+
+    system("pause");
 
     return 0;
 }
