@@ -31,5 +31,40 @@ int main() {
         cout << "No es una letra del alfabeto" << endl;
     }
 
+    
+//    CON SWITCH
+
+    char letra;
+
+    cout << "Ingrese una letra: ";
+    cin >> letra;
+
+    switch (letra) {
+        // --- Vocales mayúsculas ---
+        case 'A': case 'E': case 'I': case 'O': case 'U':
+            cout << "Es una vocal mayuscula" << endl;
+            break;
+
+        // --- Vocales minúsculas ---
+        case 'a': case 'e': case 'i': case 'o': case 'u':
+            cout << "Es una vocal minuscula" << endl;
+            break;
+
+        // --- Consonantes mayúsculas ---
+        default:
+            if (letra >= 'A' && letra <= 'Z') {
+                cout << "Es una consonante mayuscula" << endl;
+            }
+            // --- Consonantes minúsculas ---
+            else if (letra >= 'a' && letra <= 'z') {
+                cout << "Es una consonante minuscula" << endl;
+            }
+            else {
+                cout << "No es una letra del alfabeto" << endl;
+            }
+    }
+
+    return 0;
+
     return 0;
 }
