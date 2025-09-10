@@ -11,11 +11,12 @@ int main(){
     //Busca secuencialmente un dato que yo quiera saber si está
 
     int a[] = {3,4,2,1,5};
+    int b[] = {'a','e','i','o','u'};
     int i, dato;
     char band = 'F';
 
     //Busqueda
-    dato=4;
+    dato='o'; // dato=4 
     i=0;
 
     while ((band=='F') && (i<5))
