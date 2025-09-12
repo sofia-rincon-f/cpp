@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <string.h>
 
 using namespace std;
 
@@ -117,7 +118,32 @@ int main(){
 }
 
 
-// video 59 
+// video 59 estructura llamada corredor, pedir datos, asignar a una categoria
+
+struct Corredor{
+    char nombre[20];
+    int edad;
+    char sexo[10];
+    char club[20];
+}c1;
+
+int main(){
+
+    char categoria[20];
+
+    cout<<"Nombre: ";
+    cin.getline(c1.nombre,20,'\n');
+    cout<<"Edad: ";
+    cin>>c1.edad;
+    cout<<"Sexo: ";
+    cin.getline(c1.sexo, 10, '\n');
+    cout<<"Club: ";
+    cin.getline(c1.club,20,'\n');
+
+    if ()
+
+    getch();
+}
 
 // video 60
 
