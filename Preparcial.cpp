@@ -1,4 +1,4 @@
-# include < iostream >
+# include <iostream>
 
 class Nodo {
 public :
@@ -64,3 +64,19 @@ public :
         std :: cout << " NULL " << std :: endl ;
     }
 };
+
+
+//------------------------------------------
+
+Nodo* temp = cabeza;                 // O(1) asignación simple
+while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
+    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
+}
+temp->siguiente = nuevoNodo;         // O(1) asignación simple
+
+
+Nodo* temp = cabeza;                 // O(1) asignación simple
+while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
+    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
+}
+temp->siguiente = nuevoNodo;         // O(1) asignación simple
