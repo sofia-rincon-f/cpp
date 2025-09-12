@@ -1,3 +1,94 @@
+# include <iostream>
+
+class Nodo {
+public :
+    int dato ;
+    Nodo * siguiente ;
+
+    Nodo ( int valor ) {
+        dato = valor ;
+        siguiente = nullptr ;
+    }
+};
+
+class ListaEnlazada {
+public :
+    Nodo * cabeza ;
+
+    ListaEnlazada () {
+        cabeza = nullptr ;
+    }
+
+    void insertarAlFinal (int valor ) {
+        Nodo * nuevoNodo = new Nodo ( valor ) ;
+        if ( cabeza == nullptr ) {
+            cabeza = nuevoNodo ;
+            return ;
+        }
+        Nodo * temp = cabeza ;
+        while ( temp - > siguiente != nullptr ) {
+            temp = temp - > siguiente ;
+        }
+        temp - > siguiente = nuevoNodo ;
+    }
+
+    void eliminar (int valor ) {
+        if ( cabeza == nullptr ) return ;
+
+        if ( cabeza - > dato == valor ) {
+            Nodo * temp = cabeza ;
+            cabeza = cabeza - > siguiente ;
+            delete temp ;
+            return ;
+        }
+
+        Nodo * actual = cabeza ;
+        while ( actual - > siguiente != nullptr && actual - > siguiente - > dato != valor ) {
+        actual = actual - > siguiente ;
+        }
+
+        if ( actual - > siguiente == nullptr ) return ;
+
+        Nodo * temp = actual - > siguiente ;
+        actual - > siguiente = temp - > siguiente ;
+        delete temp ;
+    }
+
+
+    void imprimir () {
+        Nodo * temp = cabeza ;
+        while ( temp != nullptr ) {
+            std :: cout << temp - > dato << " -> ";
+            temp = temp - > siguiente ;
+        }
+        std :: cout << " NULL " << std :: endl ;
+    }
+};
+
+
+//------------------------------------------
+
+Nodo* temp = cabeza;                 // O(1) asignación simple
+while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
+    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
+}
+temp->siguiente = nuevoNodo;         // O(1) asignación simple
+
+
+Nodo* temp = cabeza;                 // O(1) asignación simple
+while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
+    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
+}
+6 temp->siguiente = nuevoNodo;         // O(1) asignación simple
+
+
+
+
+
+
+//-----------------------------------------------------------
+
+
 #include <iostream>                // Incluye la librería estándar para entrada/salida (std::cout, std::endl).
 
 class Nodo {                      // Declaración de la clase/estructura Nodo: representa un nodo de la lista.
@@ -71,19 +162,3 @@ public:                           // Miembros públicos de la lista.
         std::cout << "NULL" << std::endl;     // Al final imprimimos "NULL" y salto de línea (marca el fin).
     }                                         // Fin de imprimir.
 };                                            // Fin de la clase ListaEnlazada.
-
-
-//------------------------------------------
-
-Nodo* temp = cabeza;                 // O(1) asignación simple
-while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
-    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
-}
-temp->siguiente = nuevoNodo;         // O(1) asignación simple
-
-
-Nodo* temp = cabeza;                 // O(1) asignación simple
-while (temp->siguiente != nullptr) { // la condición se evalúa hasta n veces
-    temp = temp->siguiente;          // dentro del bucle: O(1), pero repetido n veces → O(n)
-}
-temp->siguiente = nuevoNodo;         // O(1) asignación simple
