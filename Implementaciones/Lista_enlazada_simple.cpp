@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-// Nodo
-struct Node {
+// Nodo exclusivo de ListaEnlazada
+struct NodeLista {
     int data;
-    Node* next;
+    NodeLista* next;
 };
 
-// Lista enlazada simple4
-class LinkedList {
+// Lista enlazada simple
+class ListaEnlazada {
 private:
-    Node* head;
+    NodeLista* head;
 
 public:
-    LinkedList() {
+    ListaEnlazada() {
         head = nullptr;
     }
 
-    // Agregar al final (para mantener orden del usuario)
+    // Agregar al final
     void push_back(int newData) {
-        Node* newNode = new Node();
+        NodeLista* newNode = new NodeLista();
         newNode->data = newData;
         newNode->next = nullptr;
 
@@ -28,7 +28,7 @@ public:
             return;
         }
 
-        Node* current = head;
+        NodeLista* current = head;
         while (current->next != nullptr) {
             current = current->next;
         }
@@ -37,7 +37,7 @@ public:
 
     // Insertar en una posición específica
     void insert_at(int index, int value) {
-        Node* newNode = new Node();
+        NodeLista* newNode = new NodeLista();
         newNode->data = value;
 
         if (index == 0) {
@@ -46,7 +46,7 @@ public:
             return;
         }
 
-        Node* current = head;
+        NodeLista* current = head;
         for (int i = 0; current != nullptr && i < index - 1; i++) {
             current = current->next;
         }
@@ -69,13 +69,13 @@ public:
         }
 
         if (index == 0) {
-            Node* temp = head;
+            NodeLista* temp = head;
             head = head->next;
             delete temp;
             return;
         }
 
-        Node* current = head;
+        NodeLista* current = head;
         for (int i = 0; current != nullptr && i < index - 1; i++) {
             current = current->next;
         }
@@ -85,14 +85,14 @@ public:
             return;
         }
 
-        Node* temp = current->next;
+        NodeLista* temp = current->next;
         current->next = temp->next;
         delete temp;
     }
 
     // Mostrar la lista
     void print() {
-        Node* current = head;
+        NodeLista* current = head;
         while (current != nullptr) {
             cout << current->data << " -> ";
             current = current->next;
@@ -100,13 +100,14 @@ public:
         cout << "nullptr" << endl;
     }
 
-    // Obtener el valor en un índice específico (para mostrar "el tercer elemento")
+    // Obtener el valor en un índice específico
     void get_at(int index) {
-        Node* current = head;
+        NodeLista* current = head;
         int i = 0;
         while (current != nullptr) {
             if (i == index) {
-                cout << "El elemento en la posición " << index + 1 << " es: " << current->data << endl;
+                cout << "El elemento en la posición " << index + 1 
+                     << " es: " << current->data << endl;
                 return;
             }
             current = current->next;
@@ -114,47 +115,45 @@ public:
         }
         cout << "No existe el elemento en la posición " << index + 1 << "." << endl;
     }
-};
 
-// Función principal
-int main() {
-    LinkedList lista;
-    int tam, valor;
+    // === Método menu para usar en el programa principal ===
+    void menu() {
+        int tam, valor;
 
-    // Ingreso de tamaño
-    cout << "Indique la cantidad de elementos: ";
-    cin >> tam;
+        cout << "=== MODULO LISTA ENLAZADA ===" << endl;
 
-    // Ingreso de elementos
-    for (int i = 0; i < tam; i++) {
-        cout << "Elemento " << i << ": ";
-        cin >> valor;
-        lista.push_back(valor);
+        // Ingreso de tamaño
+        cout << "Indique la cantidad de elementos: ";
+        cin >> tam;
+
+        // Ingreso de elementos
+        for (int i = 0; i < tam; i++) {
+            cout << "Elemento " << i << ": ";
+            cin >> valor;
+            push_back(valor);
+        }
+
+        // Mostrar el tercer elemento si existe
+        get_at(2);
+
+        // Inserción
+        int valorInsertar, posInsertar;
+        cout << "Indique el valor a insertar: ";
+        cin >> valorInsertar;
+        cout << "Indique la posición donde insertar (0 a " << tam << "): ";
+        cin >> posInsertar;
+        insert_at(posInsertar, valorInsertar);
+
+        tam++;
+
+        // Eliminación
+        int posEliminar;
+        cout << "Indique la posición a eliminar (0 a " << tam - 1 << "): ";
+        cin >> posEliminar;
+        delete_at(posEliminar);
+
+        // Mostrar lista final
+        cout << "Lista final: ";
+        print();
     }
-
-    // Mostrar el tercer elemento si existe (posición 2)
-    lista.get_at(2);
-
-    // Inserción
-    int valorInsertar, posInsertar;
-    cout << "Indique el valor a insertar: ";
-    cin >> valorInsertar;
-    cout << "Indique la posición donde insertar (0 a " << tam << "): ";
-    cin >> posInsertar;
-    lista.insert_at(posInsertar, valorInsertar);
-
-    // Actualizar tamaño lógico
-    tam++;
-
-    // Eliminación
-    int posEliminar;
-    cout << "Indique la posición a eliminar (0 a " << tam - 1 << "): ";
-    cin >> posEliminar;
-    lista.delete_at(posEliminar);
-
-    // Mostrar lista final
-    cout << "Lista final: ";
-    lista.print();
-
-    return 0;
-}
+};

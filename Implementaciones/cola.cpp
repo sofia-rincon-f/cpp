@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-// Estructura del nodo
-struct Node {
+// Estructura del nodo para la cola
+struct NodeCola {
     int data;
-    Node* next;
+    NodeCola* next;
 };
 
 // Clase Queue (Cola)
-class Queue {
+class Cola {
 private:
-    Node* front, * back; // Punteros al inicio y al final
+    NodeCola* front, * back; // Punteros al inicio y al final
 
 public:
     Queue() {
@@ -19,7 +19,7 @@ public:
 
     // Agrega un elemento al final
     void enqueue(int newData) {
-        Node* newNode = new Node();
+        NodeCola* newNode = new NodeCola();
         newNode->data = newData;
         newNode->next = nullptr;
 
@@ -40,7 +40,7 @@ public:
             return;
         }
 
-        Node* temp = front;
+        NodeCola* temp = front;
         front = front->next;
 
         if (front == nullptr) {
@@ -59,7 +59,7 @@ public:
         }
 
         cout << "Cola: ";
-        Node* current = front;
+        NodeCola* current = front;
         while (current != nullptr) {
             cout << current->data << " <- ";
             current = current->next;
@@ -71,41 +71,39 @@ public:
     bool isEmpty() {
         return front == nullptr;
     }
-};
 
-// Función principal
-int main() {
-    Queue miCola;
-    int n, valor;
-    char opcion;
+    // === Método menu para integrarlo al programa principal ===
+    void menu() {
+        int n, valor;
+        char opcion;
 
-    // Encolar elementos ingresados por el usuario
-    cout << "¿Cuántos elementos deseas encolar? ";
-    cin >> n;
+        // Encolar elementos ingresados por el usuario
+        cout << "=== MODULO COLA ===" << endl;
+        cout << "¿Cuántos elementos deseas encolar? ";
+        cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        cout << "Ingresa el elemento #" << i + 1 << ": ";
-        cin >> valor;
-        miCola.enqueue(valor);
-    }
-
-    // Mostrar la cola
-    miCola.print();
-
-    // Preguntar si quiere hacer dequeue
-    do {
-        cout << "\n¿Deseas hacer un dequeue (eliminar del frente)? (s/n): ";
-        cin >> opcion;
-
-        if (opcion == 's' || opcion == 'S') {
-            miCola.dequeue();
-            miCola.print();
+        for (int i = 0; i < n; i++) {
+            cout << "Ingresa el elemento #" << i + 1 << ": ";
+            cin >> valor;
+            enqueue(valor);
         }
 
-    } while ((opcion == 's' || opcion == 'S') && !miCola.isEmpty());
+        // Mostrar la cola
+        print();
 
-    cout << "\nPrograma terminado. Estado final de la cola:" << endl;
-    miCola.print();
+        // Preguntar si quiere hacer dequeue
+        do {
+            cout << "\n¿Deseas hacer un dequeue (eliminar del frente)? (s/n): ";
+            cin >> opcion;
 
-    return 0;
-}
+            if (opcion == 's' || opcion == 'S') {
+                dequeue();
+                print();
+            }
+
+        } while ((opcion == 's' || opcion == 'S') && !isEmpty());
+
+        cout << "\nEstado final de la cola: ";
+        print();
+    }
+};
